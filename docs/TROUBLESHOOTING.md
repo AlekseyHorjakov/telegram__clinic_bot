@@ -49,6 +49,37 @@ node -e "require('https').get('https://api.telegram.org',(r)=>console.log(r.stat
 
 Изменение VPN-маршрута и проверка соединения через Node.js.
 
+## Google Sheets перестал читать данные
+
+### Ошибка
+
+Client network socket disconnected before secure TLS connection was established
+
+### Симптомы
+
+Ранее Google Sheets успешно возвращал JSON.
+
+После некоторого времени запросы перестали работать.
+
+### Проверка
+
+Node.js успешно подключался к:
+
+- sheets.googleapis.com
+- googleapis.com
+
+что исключило проблему сети.
+
+### Причина
+
+Проблема с OAuth Credential в n8n.
+
+### Решение
+
+Переподключение Google Sheets Credential.
+
+После повторной авторизации работа восстановилась.
+
 После получения ответа:
 
 302
